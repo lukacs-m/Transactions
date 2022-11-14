@@ -5,20 +5,20 @@
 //  Created by Martin Lukacs on 07/11/2022.
 //
 
+import Combine
 import Foundation
 import Network
-import Combine
 
 enum TransactionsEndpoint {
     case userTransactions
 }
 
-//https://gist.githubusercontent.com/Aurazion/
+// https://gist.githubusercontent.com/Aurazion/
 extension TransactionsEndpoint: Endpoint {
     var host: String {
         AppConfiguration.appNetworkHost
     }
-    
+
     var path: String {
         switch self {
         case .userTransactions:
@@ -34,14 +34,13 @@ extension TransactionsEndpoint: Endpoint {
     }
 
     var header: [String: String]? {
-        return nil
+        nil
     }
-    
+
     var body: [String: String]? {
-        return  nil
+        nil
     }
 }
-
 
 protocol TransactionServicing {
     func getUserTransactions() async throws -> Transactions
@@ -49,11 +48,10 @@ protocol TransactionServicing {
 }
 
 struct TransactionRepository: NetworkClient, TransactionServicing {
-
     func getUserTransactions() async throws -> Transactions {
         try await sendRequest(endpoint: TransactionsEndpoint.userTransactions)
     }
-    
+
     func getUserTransactions() -> AnyPublisher<Transactions, Error> {
         sendRequest(endpoint: TransactionsEndpoint.userTransactions)
     }

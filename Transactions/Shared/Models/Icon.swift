@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Icon
+
 struct Icon: Codable {
     let url: String?
     let category: String

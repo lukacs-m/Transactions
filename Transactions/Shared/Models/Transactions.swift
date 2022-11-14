@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Transactions
+
 struct Transactions: Codable {
     let transactions: [Transaction]
 }

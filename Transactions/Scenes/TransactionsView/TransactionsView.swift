@@ -3,17 +3,17 @@
 //  Transactions
 //
 //  Created by Martin Lukacs on 07/11/2022.
-//  
+//
 //
 
-import SwiftUI
 import DesignSystem
+import SwiftUI
 
 struct TransactionsView: View {
     @StateObject private var viewModel = TransactionsViewModel()
     @Namespace private var animation
     @State private var selectedTransation: Transaction?
-    @State private var showFullScreen: Bool = false
+    @State private var showFullScreen = false
 
     var body: some View {
         NavigationStack {
@@ -22,7 +22,6 @@ struct TransactionsView: View {
             fullScreen
         }
     }
-    
 
 //    @ViewBuilder
 //    private var overlayView: some View {
@@ -36,8 +35,8 @@ struct TransactionsView: View {
 //            }
 //        case let .error(errorDescription):
 //            Text(" ")
-////            GenericFullScreenTextViewUI(title: "Error content \(errorDescription)".toLocalisedKey,
-////                                        retryAction: { viewModel.reloadContent() })
+    ////            GenericFullScreenTextViewUI(title: "Error content \(errorDescription)".toLocalisedKey,
+    ////                                        retryAction: { viewModel.reloadContent() })
 //        default:
 //            EmptyView()
 //        }
@@ -52,7 +51,7 @@ private extension TransactionsView {
         }
         .navigationTitle("Titre resto")
     }
-    
+
     @ViewBuilder
     private var fullScreen: some View {
         if showFullScreen, let selectedTransation = selectedTransation?.toFullScreenModel {
@@ -70,13 +69,13 @@ private extension TransactionsView {
                 Section(header: Text(item.month.name)) {
                     ForEach(item.transactions) { item in
                         TransactionCell(model: item.toTransactionCellModel, namespace: animation)
-                        .listRowSeparator(.hidden)
-                        .onTapGesture {
-                            withAnimation(.linear) {
-                                self.selectedTransation = item
-                                self.showFullScreen.toggle()
+                            .listRowSeparator(.hidden)
+                            .onTapGesture {
+                                withAnimation(.linear) {
+                                    self.selectedTransation = item
+                                    self.showFullScreen.toggle()
+                                }
                             }
-                        }
                     }
                 }
             }
@@ -84,8 +83,6 @@ private extension TransactionsView {
         .listStyle(.plain)
     }
 }
-
-
 
 struct TransactionsView_Previews: PreviewProvider {
     static var previews: some View {

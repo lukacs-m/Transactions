@@ -3,19 +3,19 @@
 //  Transactions
 //
 //  Created by Martin Lukacs on 07/11/2022.
-//  
+//
 //
 
-import Foundation
 import Combine
 import Factory
+import Foundation
 
 final class TransactionsViewModel: ObservableObject {
     @Published var transactions: [(month: Month, transactions: [Transaction])] = []
     @LazyInjected(UseCasesContainer.getOrderedTransactions) private var getOrderedTransactions
 
     private var cancellables = Set<AnyCancellable>()
-    
+
     init() {
         setUp()
     }
@@ -27,18 +27,15 @@ private extension TransactionsViewModel {
             .receive(on: DispatchQueue.main)
             .sink { results in
                 switch results {
-                case .failure(let error):
+                case let .failure(error):
                     print(error)
                 case .finished:
                     print("finisehd")
                 }
             } receiveValue: { [weak self] results in
-               // let test =
+                // let test =
                 self?.transactions = results
 //                Dictionary(grouping: results.transactions, by: \.month) // results.transactions
             }.store(in: &cancellables)
     }
 }
-
-
-

@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Currency
+
 struct Currency: Codable {
     let iso3, symbol, title: String
 

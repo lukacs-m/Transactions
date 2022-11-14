@@ -308,6 +308,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8130D4229185A6700BCF4BB /* Build configuration list for PBXNativeTarget "Transactions" */;
 			buildPhases = (
+				B8D051FC2922664200E82490 /* Swiftformat */,
+				B8D051FD2922666E00E82490 /* Swiftlint */,
 				B8130D1A29185A6500BCF4BB /* Sources */,
 				B8130D1B29185A6500BCF4BB /* Frameworks */,
 				B8130D1C29185A6500BCF4BB /* Resources */,
@@ -433,6 +435,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B8D051FC2922664200E82490 /* Swiftformat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftformat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=/opt/homebrew/bin/:$PATH\n\nif which swiftformat >/dev/null; then\nswiftformat .\nelse\necho \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+		B8D051FD2922666E00E82490 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=/opt/homebrew/bin/:$PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B8130D1A29185A6500BCF4BB /* Sources */ = {

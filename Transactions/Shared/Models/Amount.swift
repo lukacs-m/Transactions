@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Amount
+
 struct Amount: Codable {
     let value: Double
     let currency: Currency
