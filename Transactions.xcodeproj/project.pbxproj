@@ -79,6 +79,7 @@
 		B8FCEF642922D8D2001C7339 /* TransactionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModelTests.swift; sourceTree = "<group>"; };
 		B8FCEF682922D93E001C7339 /* GetOrderedTransactionsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderedTransactionsMock.swift; sourceTree = "<group>"; };
 		B8FCEF6C2922E09B001C7339 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
+		B8FCEF702922F9CF001C7339 /* Test */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Test; path = Packages/Test; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +110,7 @@
 				B8130D3129185A6700BCF4BB /* TransactionsTests */,
 				B8130D4B29185B7E00BCF4BB /* DesignSystem */,
 				B8130D4C29185BFA00BCF4BB /* Network */,
+				B8FCEF702922F9CF001C7339 /* Test */,
 				B8130D1F29185A6500BCF4BB /* Products */,
 				B8130D4D29185C5600BCF4BB /* Frameworks */,
 			);
