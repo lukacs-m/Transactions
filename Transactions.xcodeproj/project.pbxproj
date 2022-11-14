@@ -8,12 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B8130D2229185A6500BCF4BB /* TransactionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8130D2129185A6500BCF4BB /* TransactionsApp.swift */; };
-		B8130D2429185A6500BCF4BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8130D2329185A6500BCF4BB /* ContentView.swift */; };
 		B8130D2629185A6700BCF4BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8130D2529185A6700BCF4BB /* Assets.xcassets */; };
 		B8130D2929185A6700BCF4BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8130D2829185A6700BCF4BB /* Preview Assets.xcassets */; };
-		B8130D3329185A6700BCF4BB /* TransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8130D3229185A6700BCF4BB /* TransactionsTests.swift */; };
-		B8130D3D29185A6700BCF4BB /* TransactionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8130D3C29185A6700BCF4BB /* TransactionsUITests.swift */; };
-		B8130D3F29185A6700BCF4BB /* TransactionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8130D3E29185A6700BCF4BB /* TransactionsUITestsLaunchTests.swift */; };
 		B8130D4F29185C5600BCF4BB /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = B8130D4E29185C5600BCF4BB /* DesignSystem */; };
 		B8130D5129185C5600BCF4BB /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = B8130D5029185C5600BCF4BB /* Network */; };
 		B8130D5429185C9300BCF4BB /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = B8130D5329185C9300BCF4BB /* Factory */; };
@@ -34,17 +30,16 @@
 		B8D051F02920222600E82490 /* UseCases+Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D051EF2920222600E82490 /* UseCases+Dependencies.swift */; };
 		B8D051F22921439700E82490 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D051F12921439700E82490 /* Month.swift */; };
 		B8D051F4292143B400E82490 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D051F3292143B400E82490 /* Date+Extensions.swift */; };
+		B8FCEF5C2922CDF1001C7339 /* GetOrderedTransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEF5B2922CDF1001C7339 /* GetOrderedTransactionsTests.swift */; };
+		B8FCEF602922CE78001C7339 /* TransactionRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEF5F2922CE78001C7339 /* TransactionRepositoryMock.swift */; };
+		B8FCEF622922D0BC001C7339 /* transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = B8FCEF612922D0BC001C7339 /* transactions.json */; };
+		B8FCEF652922D8D2001C7339 /* TransactionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEF642922D8D2001C7339 /* TransactionsViewModelTests.swift */; };
+		B8FCEF692922D93E001C7339 /* GetOrderedTransactionsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEF682922D93E001C7339 /* GetOrderedTransactionsMock.swift */; };
+		B8FCEF6D2922E09B001C7339 /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FCEF6C2922E09B001C7339 /* MockDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		B8130D2F29185A6700BCF4BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B8130D1629185A6500BCF4BB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B8130D1D29185A6500BCF4BB;
-			remoteInfo = Transactions;
-		};
-		B8130D3929185A6700BCF4BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B8130D1629185A6500BCF4BB /* Project object */;
 			proxyType = 1;
@@ -56,14 +51,9 @@
 /* Begin PBXFileReference section */
 		B8130D1E29185A6500BCF4BB /* Transactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8130D2129185A6500BCF4BB /* TransactionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsApp.swift; sourceTree = "<group>"; };
-		B8130D2329185A6500BCF4BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B8130D2529185A6700BCF4BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8130D2829185A6700BCF4BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8130D2E29185A6700BCF4BB /* TransactionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8130D3229185A6700BCF4BB /* TransactionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTests.swift; sourceTree = "<group>"; };
-		B8130D3829185A6700BCF4BB /* TransactionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8130D3C29185A6700BCF4BB /* TransactionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsUITests.swift; sourceTree = "<group>"; };
-		B8130D3E29185A6700BCF4BB /* TransactionsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B8130D4B29185B7E00BCF4BB /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = Packages/DesignSystem; sourceTree = "<group>"; };
 		B8130D4C29185BFA00BCF4BB /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Network; path = Packages/Network; sourceTree = "<group>"; };
 		B84186C929192B4200D97358 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
@@ -83,6 +73,12 @@
 		B8D051EF2920222600E82490 /* UseCases+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCases+Dependencies.swift"; sourceTree = "<group>"; };
 		B8D051F12921439700E82490 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		B8D051F3292143B400E82490 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B8FCEF5B2922CDF1001C7339 /* GetOrderedTransactionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderedTransactionsTests.swift; sourceTree = "<group>"; };
+		B8FCEF5F2922CE78001C7339 /* TransactionRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryMock.swift; sourceTree = "<group>"; };
+		B8FCEF612922D0BC001C7339 /* transactions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = transactions.json; sourceTree = "<group>"; };
+		B8FCEF642922D8D2001C7339 /* TransactionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModelTests.swift; sourceTree = "<group>"; };
+		B8FCEF682922D93E001C7339 /* GetOrderedTransactionsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderedTransactionsMock.swift; sourceTree = "<group>"; };
+		B8FCEF6C2922E09B001C7339 /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +99,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8130D3529185A6700BCF4BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -118,7 +107,6 @@
 			children = (
 				B8130D2029185A6500BCF4BB /* Transactions */,
 				B8130D3129185A6700BCF4BB /* TransactionsTests */,
-				B8130D3B29185A6700BCF4BB /* TransactionsUITests */,
 				B8130D4B29185B7E00BCF4BB /* DesignSystem */,
 				B8130D4C29185BFA00BCF4BB /* Network */,
 				B8130D1F29185A6500BCF4BB /* Products */,
@@ -131,7 +119,6 @@
 			children = (
 				B8130D1E29185A6500BCF4BB /* Transactions.app */,
 				B8130D2E29185A6700BCF4BB /* TransactionsTests.xctest */,
-				B8130D3829185A6700BCF4BB /* TransactionsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,7 +128,6 @@
 			children = (
 				B8130D5529185CB900BCF4BB /* App */,
 				B8130D5629185CC200BCF4BB /* AppManagement */,
-				B8130D2329185A6500BCF4BB /* ContentView.swift */,
 				B8130D5729185CE200BCF4BB /* Scenes */,
 				B8130D5829185CEA00BCF4BB /* Shared */,
 			);
@@ -160,18 +146,11 @@
 		B8130D3129185A6700BCF4BB /* TransactionsTests */ = {
 			isa = PBXGroup;
 			children = (
-				B8130D3229185A6700BCF4BB /* TransactionsTests.swift */,
+				B8FCEF6A2922E07C001C7339 /* Util */,
+				B8FCEF632922D888001C7339 /* ViewModels */,
+				B8FCEF592922CD71001C7339 /* DomainLayer */,
 			);
 			path = TransactionsTests;
-			sourceTree = "<group>";
-		};
-		B8130D3B29185A6700BCF4BB /* TransactionsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B8130D3C29185A6700BCF4BB /* TransactionsUITests.swift */,
-				B8130D3E29185A6700BCF4BB /* TransactionsUITestsLaunchTests.swift */,
-			);
-			path = TransactionsUITests;
 			sourceTree = "<group>";
 		};
 		B8130D4D29185C5600BCF4BB /* Frameworks */ = {
@@ -301,6 +280,73 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B8FCEF592922CD71001C7339 /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF5A2922CD7A001C7339 /* UseCases */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		B8FCEF5A2922CD7A001C7339 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF5B2922CDF1001C7339 /* GetOrderedTransactionsTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B8FCEF5D2922CE57001C7339 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF662922D922001C7339 /* UseCases */,
+				B8FCEF5E2922CE5E001C7339 /* Repositories */,
+				B8FCEF612922D0BC001C7339 /* transactions.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B8FCEF5E2922CE5E001C7339 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF5F2922CE78001C7339 /* TransactionRepositoryMock.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B8FCEF632922D888001C7339 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF642922D8D2001C7339 /* TransactionsViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B8FCEF662922D922001C7339 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF682922D93E001C7339 /* GetOrderedTransactionsMock.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B8FCEF6A2922E07C001C7339 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF6B2922E08F001C7339 /* Protocol */,
+				B8FCEF5D2922CE57001C7339 /* Mock */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		B8FCEF6B2922E08F001C7339 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCEF6C2922E09B001C7339 /* MockDataProvider.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,24 +392,6 @@
 			productReference = B8130D2E29185A6700BCF4BB /* TransactionsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B8130D3729185A6700BCF4BB /* TransactionsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B8130D4829185A6700BCF4BB /* Build configuration list for PBXNativeTarget "TransactionsUITests" */;
-			buildPhases = (
-				B8130D3429185A6700BCF4BB /* Sources */,
-				B8130D3529185A6700BCF4BB /* Frameworks */,
-				B8130D3629185A6700BCF4BB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B8130D3A29185A6700BCF4BB /* PBXTargetDependency */,
-			);
-			name = TransactionsUITests;
-			productName = TransactionsUITests;
-			productReference = B8130D3829185A6700BCF4BB /* TransactionsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -378,10 +406,6 @@
 						CreatedOnToolsVersion = 14.1;
 					};
 					B8130D2D29185A6700BCF4BB = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = B8130D1D29185A6500BCF4BB;
-					};
-					B8130D3729185A6700BCF4BB = {
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = B8130D1D29185A6500BCF4BB;
 					};
@@ -405,7 +429,6 @@
 			targets = (
 				B8130D1D29185A6500BCF4BB /* Transactions */,
 				B8130D2D29185A6700BCF4BB /* TransactionsTests */,
-				B8130D3729185A6700BCF4BB /* TransactionsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -424,13 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B8130D3629185A6700BCF4BB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				B8FCEF622922D0BC001C7339 /* transactions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +504,6 @@
 				B8D051F22921439700E82490 /* Month.swift in Sources */,
 				B84186E329197C2000D97358 /* String+Extensions.swift in Sources */,
 				B84186E529197C4400D97358 /* DateFormatter+Extensions.swift in Sources */,
-				B8130D2429185A6500BCF4BB /* ContentView.swift in Sources */,
 				B8D051EC29201AF800E82490 /* Transaction+Extensions.swift in Sources */,
 				B8D051EE29201B5200E82490 /* GetOrderedTransactions.swift in Sources */,
 				B84186D229192F7100D97358 /* Transaction.swift in Sources */,
@@ -508,16 +524,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8130D3329185A6700BCF4BB /* TransactionsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B8130D3429185A6700BCF4BB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B8130D3D29185A6700BCF4BB /* TransactionsUITests.swift in Sources */,
-				B8130D3F29185A6700BCF4BB /* TransactionsUITestsLaunchTests.swift in Sources */,
+				B8FCEF5C2922CDF1001C7339 /* GetOrderedTransactionsTests.swift in Sources */,
+				B8FCEF652922D8D2001C7339 /* TransactionsViewModelTests.swift in Sources */,
+				B8FCEF6D2922E09B001C7339 /* MockDataProvider.swift in Sources */,
+				B8FCEF692922D93E001C7339 /* GetOrderedTransactionsMock.swift in Sources */,
+				B8FCEF602922CE78001C7339 /* TransactionRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,11 +539,6 @@
 			isa = PBXTargetDependency;
 			target = B8130D1D29185A6500BCF4BB /* Transactions */;
 			targetProxy = B8130D2F29185A6700BCF4BB /* PBXContainerItemProxy */;
-		};
-		B8130D3A29185A6700BCF4BB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B8130D1D29185A6500BCF4BB /* Transactions */;
-			targetProxy = B8130D3929185A6700BCF4BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -749,42 +755,6 @@
 			};
 			name = Release;
 		};
-		B8130D4929185A6700BCF4BB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WLGFZCD2AB;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.TransactionsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Transactions;
-			};
-			name = Debug;
-		};
-		B8130D4A29185A6700BCF4BB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WLGFZCD2AB;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.TransactionsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Transactions;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -811,15 +781,6 @@
 			buildConfigurations = (
 				B8130D4629185A6700BCF4BB /* Debug */,
 				B8130D4729185A6700BCF4BB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B8130D4829185A6700BCF4BB /* Build configuration list for PBXNativeTarget "TransactionsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B8130D4929185A6700BCF4BB /* Debug */,
-				B8130D4A29185A6700BCF4BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

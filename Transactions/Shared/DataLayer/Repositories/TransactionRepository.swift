@@ -13,7 +13,6 @@ enum TransactionsEndpoint {
     case userTransactions
 }
 
-// https://gist.githubusercontent.com/Aurazion/
 extension TransactionsEndpoint: Endpoint {
     var host: String {
         AppConfiguration.appNetworkHost

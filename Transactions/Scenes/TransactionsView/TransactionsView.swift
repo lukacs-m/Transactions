@@ -18,29 +18,29 @@ struct TransactionsView: View {
     var body: some View {
         NavigationStack {
             mainContainer
-        }.overlay {
+        }
+        .overlay {
+            overlayView
+        }
+        .overlay {
             fullScreen
         }
     }
 
-//    @ViewBuilder
-//    private var overlayView: some View {
-//        switch viewModel.pageState {
-//        case .loading:
-//            LoadingView(title: "Loading")
-//                .task(loadData)
-//        case .empty:
-//            VStack {
-//                Text("No transactions found")
-//            }
-//        case let .error(errorDescription):
-//            Text(" ")
-    ////            GenericFullScreenTextViewUI(title: "Error content \(errorDescription)".toLocalisedKey,
-    ////                                        retryAction: { viewModel.reloadContent() })
-//        default:
-//            EmptyView()
-//        }
-//    }
+    @ViewBuilder
+    private var overlayView: some View {
+        switch viewModel.pageState {
+        case .loading:
+            LoadingView(title: "Loading")
+                .onAppear {
+                    viewModel.loadData()
+                }
+        case let .error(errorDescription):
+            Text(errorDescription)
+        default:
+            EmptyView()
+        }
+    }
 }
 
 private extension TransactionsView {
@@ -81,6 +81,9 @@ private extension TransactionsView {
             }
         }
         .listStyle(.plain)
+        .refreshable {
+            viewModel.loadData()
+        }
     }
 }
 
