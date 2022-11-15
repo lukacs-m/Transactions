@@ -49,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B80AD7B52923A5D800E64DCF /* EasyNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = EasyNetwork; path = Packages/EasyNetwork; sourceTree = "<group>"; };
 		B8130D1E29185A6500BCF4BB /* Transactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8130D2129185A6500BCF4BB /* TransactionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsApp.swift; sourceTree = "<group>"; };
 		B8130D2529185A6700BCF4BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				B8130D2029185A6500BCF4BB /* Transactions */,
+				B80AD7B52923A5D800E64DCF /* EasyNetwork */,
 				B8130D3129185A6700BCF4BB /* TransactionsTests */,
 				B8130D1F29185A6500BCF4BB /* Products */,
 				B8130D4D29185C5600BCF4BB /* Frameworks */,
