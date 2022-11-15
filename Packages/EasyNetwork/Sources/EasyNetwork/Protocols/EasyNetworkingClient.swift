@@ -13,7 +13,7 @@ public protocol EasyNetworkingClient {
     func sendRequest<ReturnedType: Decodable>(endpoint: Endpoint) -> AnyPublisher<ReturnedType, Error>
 }
 
-extension EasyNetworkingClient {
+public extension EasyNetworkingClient {
     func sendRequest<ReturnedType: Decodable>(endpoint: Endpoint) async throws -> ReturnedType {
         guard let request = endpoint.request else {
             throw RequestError.invalidURL

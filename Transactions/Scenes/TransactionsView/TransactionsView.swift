@@ -6,8 +6,8 @@
 //
 //
 
-import DesignSystem
 import SwiftUI
+import TransactionDesignSystem
 
 struct TransactionsView: View {
     @StateObject private var viewModel = TransactionsViewModel()

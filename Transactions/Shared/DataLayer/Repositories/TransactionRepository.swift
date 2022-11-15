@@ -25,7 +25,7 @@ extension TransactionsEndpoint: Endpoint {
         }
     }
 
-    var method: RequestMethod {
+    var method: CRUDRequestMethod {
         switch self {
         case .userTransactions:
             return .get

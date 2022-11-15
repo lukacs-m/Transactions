@@ -14,7 +14,7 @@ public protocol Endpoint {
     var body: [String: String]? { get }
 }
 
-extension Endpoint {
+public extension Endpoint {
     var scheme: String {
         "https"
     }
