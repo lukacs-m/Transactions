@@ -54,8 +54,6 @@
 		B8130D2529185A6700BCF4BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8130D2829185A6700BCF4BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8130D2E29185A6700BCF4BB /* TransactionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8130D4B29185B7E00BCF4BB /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignSystem; path = Packages/DesignSystem; sourceTree = "<group>"; };
-		B8130D4C29185BFA00BCF4BB /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Network; path = Packages/Network; sourceTree = "<group>"; };
 		B84186C929192B4200D97358 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
 		B84186CC29192C4900D97358 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		B84186CF29192F5F00D97358 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
@@ -107,8 +105,6 @@
 			children = (
 				B8130D2029185A6500BCF4BB /* Transactions */,
 				B8130D3129185A6700BCF4BB /* TransactionsTests */,
-				B8130D4B29185B7E00BCF4BB /* DesignSystem */,
-				B8130D4C29185BFA00BCF4BB /* Network */,
 				B8130D1F29185A6500BCF4BB /* Products */,
 				B8130D4D29185C5600BCF4BB /* Frameworks */,
 			);
