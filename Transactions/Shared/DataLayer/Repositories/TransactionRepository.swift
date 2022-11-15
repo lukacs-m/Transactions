@@ -6,8 +6,8 @@
 //
 
 import Combine
+import EasyNetwork
 import Foundation
-import Network
 
 enum TransactionsEndpoint {
     case userTransactions
@@ -46,7 +46,7 @@ protocol TransactionServicing {
     func getUserTransactions() -> AnyPublisher<Transactions, Error>
 }
 
-struct TransactionRepository: NetworkClient, TransactionServicing {
+struct TransactionRepository: EasyNetworkingClient, TransactionServicing {
     func getUserTransactions() async throws -> Transactions {
         try await sendRequest(endpoint: TransactionsEndpoint.userTransactions)
     }

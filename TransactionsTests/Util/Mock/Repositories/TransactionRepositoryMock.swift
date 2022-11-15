@@ -7,14 +7,14 @@
 
 import Combine
 import Foundation
-import Network
+import EasyNetwork
 @testable import Transactions
 
 enum TestError: Error {
     case generic
 }
 
-class TransactionRepositoryMock: NetworkClient, TransactionServicing, MockDataProvider {
+class TransactionRepositoryMock: EasyNetworkingClient, TransactionServicing, MockDataProvider {
     func getUserTransactions() async throws -> Transactions {
         try await sendRequest(endpoint: TransactionsEndpoint.userTransactions)
     }

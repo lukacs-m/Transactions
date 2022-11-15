@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80AD7B72923A71A00E64DCF /* EasyNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = B80AD7B62923A71A00E64DCF /* EasyNetwork */; };
 		B8130D2229185A6500BCF4BB /* TransactionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8130D2129185A6500BCF4BB /* TransactionsApp.swift */; };
 		B8130D2629185A6700BCF4BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8130D2529185A6700BCF4BB /* Assets.xcassets */; };
 		B8130D2929185A6700BCF4BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8130D2829185A6700BCF4BB /* Preview Assets.xcassets */; };
-		B8130D4F29185C5600BCF4BB /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = B8130D4E29185C5600BCF4BB /* DesignSystem */; };
-		B8130D5129185C5600BCF4BB /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = B8130D5029185C5600BCF4BB /* Network */; };
 		B8130D5429185C9300BCF4BB /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = B8130D5329185C9300BCF4BB /* Factory */; };
 		B84186CA29192B4200D97358 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84186C929192B4200D97358 /* TransactionRepository.swift */; };
 		B84186CD29192C4900D97358 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84186CC29192C4900D97358 /* AppConfiguration.swift */; };
@@ -86,8 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8130D5429185C9300BCF4BB /* Factory in Frameworks */,
-				B8130D4F29185C5600BCF4BB /* DesignSystem in Frameworks */,
-				B8130D5129185C5600BCF4BB /* Network in Frameworks */,
+				B80AD7B72923A71A00E64DCF /* EasyNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,9 +362,8 @@
 			);
 			name = Transactions;
 			packageProductDependencies = (
-				B8130D4E29185C5600BCF4BB /* DesignSystem */,
-				B8130D5029185C5600BCF4BB /* Network */,
 				B8130D5329185C9300BCF4BB /* Factory */,
+				B80AD7B62923A71A00E64DCF /* EasyNetwork */,
 			);
 			productName = Transactions;
 			productReference = B8130D1E29185A6500BCF4BB /* Transactions.app */;
@@ -797,13 +794,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B8130D4E29185C5600BCF4BB /* DesignSystem */ = {
+		B80AD7B62923A71A00E64DCF /* EasyNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = DesignSystem;
-		};
-		B8130D5029185C5600BCF4BB /* Network */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Network;
+			productName = EasyNetwork;
 		};
 		B8130D5329185C9300BCF4BB /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
