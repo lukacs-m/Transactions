@@ -1,13 +1,28 @@
 input_dir: Sources/TransactionDesignSystem/Resources
-output_dir: ${DERIVED_SOURCES_DIR}
+output_dir: Sources/TransactionDesignSystem/Generated
+
+## Strings
+strings:
+  inputs:
+    - Languages/fr.lproj
+  outputs:
+    - templateName: structured-swift5
+      params:
+        publicAccess: true
+        enumName: Strings
+      output: Strings+Generated.swift
+
 
 xcassets:
   inputs:
     - Assets.xcassets
     - Colors.xcassets
   outputs:
-    templateName: swift5
+    templatePath: ./assets_swift5_swiftui.stencil
     params:
+        colorTypeName: "SecuredColors"
+        imageTypeName: "SecuredIcons"
+        publicAccess: true
         forceProvidesNamespaces: true
         forceFileNameEnum: true
-    output: Assets.swift
+    output: XCAssets+Generated.swift

@@ -18,7 +18,13 @@ public struct TransactionCell: View {
 
     private enum TransactionCellSize {
         static let mastHeadHight: CGFloat = 291
-        static let mainIconSize: CGFloat = 56
+        static let mainIconSize: CGFloat = 28
+        static let backgroundColorSize: CGFloat = 56
+        static let smallIconSize: CGFloat = 12
+        static let smallIconBackground: CGFloat = 20
+
+        static let smallIconOffset: CGSize = .init(width: backgroundColorSize / 2 - smallIconSize / 2,
+                                                   height: backgroundColorSize / 2 - smallIconSize / 2)
     }
 
     private var isPositive: Bool {
@@ -29,55 +35,20 @@ public struct TransactionCell: View {
         HStack(spacing: 16) {
             icon
             infos
-//            ZStack {
-//                RoundedRectangle(cornerRadius: 25)
-//                    .fill(.orange)
-//                    .matchedGeometryEffect(id: "background\(transaction.id)", in: animation)
-//                    .frame(width: 56, height: 56)
-//                    .overlay(RoundedRectangle(cornerRadius: 25)
-//                        .stroke(.blue, lineWidth: 1))
-//                Image(systemName: "play")
-//                    .resizable()
-//                    .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
-//                    .frame(width: 28, height: 28)
-//                Image(systemName: "xmark")
-//                    .resizable()
-//                    .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
-//                    .frame(width: 12, height: 12)
-//                    .background(Circle()
-//                        .fill(.white).frame(width: 20, height: 20)
-//                        .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
-            ////                    .padding(2)
-            ////                    .background(.white)
-            ////                    .clipShape(Circle())
-            ////                    .overlay(Circle()
-            ////                        .stroke(.white, lineWidth: 3))
-//                    .offset(x: 56 / 2 - 6, y: 56 / 2 - 6)
-//            }
-            Spacer()
         }
     }
 
     private var icon: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
-                .fill(.orange)
+                .fill(transaction.mainIcon.backgroundColor)
                 .matchedGeometryEffect(id: "background\(transaction.id)", in: animation)
-                .frame(width: 56, height: 56)
+                .frame(width: TransactionCellSize.backgroundColorSize,
+                       height: TransactionCellSize.backgroundColorSize)
                 .overlay(RoundedRectangle(cornerRadius: 25)
-                    .stroke(.blue, lineWidth: 1))
-            Image(systemName: "play")
-                .resizable()
-                .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
-                .frame(width: 28, height: 28)
-            Image(systemName: "xmark")
-                .resizable()
-                .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
-                .frame(width: 12, height: 12)
-                .background(Circle()
-                    .fill(.white).frame(width: 20, height: 20)
-                    .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
-                .offset(x: 56 / 2 - 6, y: 56 / 2 - 6)
+                    .stroke(transaction.mainIcon.color.opacity(0.06), lineWidth: 1))
+            mainIcon
+            smallIcon
         }
     }
 
@@ -108,6 +79,68 @@ public struct TransactionCell: View {
             EmptyView()
         }
     }
+
+    @ViewBuilder
+    var mainIcon: some View {
+        if let url = transaction.mainIcon.url {
+            AsyncImage(url: URL(string: url)) { image in
+                image
+                    .resizable()
+                    .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
+                    .frame(width: TransactionCellSize.mainIconSize,
+                           height: TransactionCellSize.mainIconSize)
+            } placeholder: {
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
+            }
+        } else {
+            Image(iconName: transaction.mainIcon.category)
+                .resizable()
+                .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
+                .frame(width: TransactionCellSize.mainIconSize,
+                       height: TransactionCellSize.mainIconSize)
+        }
+    }
+
+    @ViewBuilder
+    var smallIcon: some View {
+        if let url = transaction.smallIcon.url {
+            AsyncImage(url: URL(string: url)) { image in
+                image
+                    .smallIconModifier(id: transaction.id,
+                                       size: TransactionCellSize.smallIconSize,
+                                       backgroundSize: TransactionCellSize.smallIconBackground,
+                                       offset: TransactionCellSize.smallIconOffset,
+                                       animation: animation)
+//                    .resizable()
+//                    .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+//                    .frame(width: TransactionCellSize.smallIconSize,
+//                           height: TransactionCellSize.smallIconSize)
+//                    .clipShape(Circle())
+//                    .background(Circle()
+//                        .fill(.white).frame(width: 20, height: 20)
+//                        .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
+//                    .offset(x: 56 / 2 - 6, y: 56 / 2 - 6)
+            } placeholder: {
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
+            }
+        } else {
+            Image(iconName: transaction.smallIcon.category)
+                .smallIconModifier(id: transaction.id,
+                                   size: TransactionCellSize.smallIconSize,
+                                   backgroundSize: TransactionCellSize.smallIconBackground,
+                                   offset: TransactionCellSize.smallIconOffset,
+                                   animation: animation)
+//                .resizable()
+//                .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+//                .frame(width: TransactionCellSize.smallIconSize,
+//                       height: TransactionCellSize.smallIconSize)
+//                .clipShape(Circle())
+//                .background(Circle()
+//                    .fill(.white).frame(width: 20, height: 20)
+//                    .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
+//                .offset(x: 56 / 2 - 6, y: 56 / 2 - 6)
+        }
+    }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
@@ -121,5 +154,22 @@ struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         TransactionCell(transaction: transaction,
                         animation: animation)
+    }
+}
+
+extension Image {
+    func smallIconModifier(id: String,
+                           size: CGFloat,
+                           backgroundSize: CGFloat,
+                           offset: CGSize,
+                           animation: Namespace.ID) -> some View {
+        resizable()
+            .matchedGeometryEffect(id: "smallIcon\(id)", in: animation)
+            .frame(width: size, height: size)
+            .clipShape(Circle())
+            .background(Circle()
+                .fill(.white).frame(width: backgroundSize, height: backgroundSize)
+                .matchedGeometryEffect(id: "smallIconBack\(id)", in: animation))
+            .offset(offset)
     }
 }

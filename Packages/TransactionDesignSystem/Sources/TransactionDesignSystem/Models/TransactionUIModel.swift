@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 public struct TransactionUIModel {
     let id: String
@@ -23,4 +24,14 @@ public struct TransactionUIModel {
         self.mainIcon = mainIcon
         self.smallIcon = smallIcon
     }
+//
+//    var mainIconName: String {
+//        switch title {
+//            case ""
+//        }
+//    }
+
+//    var smallIconName: String {
+//
+//    }
 }

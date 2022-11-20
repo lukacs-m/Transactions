@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Martin Lukacs on 20/11/2022.
+  
+*/
+
+// Transaction List
+"TransactionView.Title" = "Titres-resto";
+
+// Transaction Detail
+"TitreResto.Cell.Title" = "Titres-resto";
+"ChangeAccount.Button.Title" = "Changer \n de compte";
+"ShareAccount.Cell.Title" = "Partage d'addition";
+"Love.Cell.Title" = "Aimer";
+"SignalProblem.Cell.Title" = "Signaler un problème";

@@ -149,7 +149,7 @@ private extension TransactionsView {
         ZStack {
             loadedView
         }
-        .navigationBarTitle("Titre resto")
+        .navigationBarTitle(Strings.TransactionView.title)
     }
 
     @ViewBuilder
