@@ -10,9 +10,9 @@ import Foundation
 public struct IconUIModel {
     let type: String
     let category: String
-    let url: String
+    let url: String?
 
-    public init(type: String, category: String, url: String) {
+    public init(type: String, category: String, url: String?) {
         self.type = type
         self.category = category
         self.url = url

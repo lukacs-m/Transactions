@@ -14,23 +14,23 @@ extension Transaction {
                            subtitle: shortDate,
                            price: price,
                            mainIcon: IconUIModel(type: type,
-                                                 name: largeIcon.category,
+                                                 category: largeIcon.category,
                                                  url: largeIcon.url),
                            smallIcon: IconUIModel(type: type,
-                                                  name: smallIcon.category,
+                                                  category: smallIcon.category,
                                                   url: smallIcon.url))
     }
 
-    var toFullScreenModel: TransactionUIModel {
+    var toDetailScreenModel: TransactionUIModel {
         TransactionUIModel(id: id,
                            title: name,
                            subtitle: longDate,
                            price: price,
                            mainIcon: IconUIModel(type: type,
-                                                 name: largeIcon.category,
+                                                 category: largeIcon.category,
                                                  url: largeIcon.url),
                            smallIcon: IconUIModel(type: type,
-                                                  name: smallIcon.category,
+                                                  category: smallIcon.category,
                                                   url: smallIcon.url))
     }
 }

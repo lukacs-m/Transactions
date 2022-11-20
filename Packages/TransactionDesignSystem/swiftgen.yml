@@ -1,0 +1,13 @@
+input_dir: Sources/TransactionDesignSystem/Resources
+output_dir: ${DERIVED_SOURCES_DIR}
+
+xcassets:
+  inputs:
+    - Assets.xcassets
+    - Colors.xcassets
+  outputs:
+    templateName: swift5
+    params:
+        forceProvidesNamespaces: true
+        forceFileNameEnum: true
+    output: Assets.swift
