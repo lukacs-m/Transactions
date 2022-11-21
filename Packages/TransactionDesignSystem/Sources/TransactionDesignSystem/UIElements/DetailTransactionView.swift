@@ -40,12 +40,12 @@ public struct DetailTransactionView: View {
                 masthead
                 if showInfos {
                     mainInfos
-                        .transition(.moveAndScale)
+                        .transition(.moveAndShow)
                 }
 
                 if showActions {
                     actions
-                        .transition(.moveAndScale)
+                        .transition(.moveAndShow)
                 }
                 Spacer()
             }
@@ -79,15 +79,34 @@ public struct DetailTransactionView: View {
     }
 
     @ViewBuilder
+    var firstActionIcon: some View {
+        if let url = transaction.smallIcon.url {
+            AsyncImage(url: URL(string: url), transaction: .init(animation: .linear.delay(1.3))) { phase in
+                switch phase {
+                case let .success(image):
+                    image
+                        .resizable()
+                        .transition(.opacity)
+                default:
+                    ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                }
+            }
+        } else {
+            Image(iconName: transaction.smallIcon.category)
+                .resizable()
+        }
+    }
+
+    @ViewBuilder
     var actions: some View {
         VStack(spacing: 10) {
             HStack(spacing: 12) {
-                Image(iconName: transaction.smallIcon.category)
-                    .resizable()
+                firstActionIcon
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .padding(6)
-                    .background(RoundedRectangle(cornerRadius: 13).fill(transaction.mainIcon.backgroundColor)
+                    .background(RoundedRectangle(cornerRadius: 13)
+                        .fill(transaction.mainIcon.backgroundColor)
                         .frame(width: 32, height: 32))
                 Text(Strings.TitreResto.Cell.title)
                 Spacer()
@@ -136,7 +155,9 @@ public struct DetailTransactionView: View {
 
             HStack {
                 Spacer()
-                smallIcon
+                smallIcon(size: 18, backgroundSize: 26)
+                    .offset(y: DetailTransactionViewSize.mastHeadHight / 2)
+                    .padding(.trailing, 20)
             }
         }
     }
@@ -162,17 +183,19 @@ public struct DetailTransactionView: View {
     @ViewBuilder
     var mainIcon: some View {
         if let url = transaction.mainIcon.url {
-            AsyncImage(url: URL(string: url)) { image in
-                image
-                    .resizable()
-                    .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
-            } placeholder: {
-                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
-                    .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
-            }
-            .frame(width: DetailTransactionViewSize.mainIconSize,
-                   height: DetailTransactionViewSize.mainIconSize)
-            .offset(y: DetailTransactionViewSize.mainIconOffset)
+            AsyncImage(url: URL(string: url), transaction: .init(animation: .linear)) { phase in
+                switch phase {
+                case let .success(image):
+                    image
+                        .resizable()
+                        .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
+                default:
+                    ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                        .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
+                }
+            }.frame(width: DetailTransactionViewSize.mainIconSize,
+                    height: DetailTransactionViewSize.mainIconSize)
+                .offset(y: DetailTransactionViewSize.mainIconOffset)
         } else {
             Image(iconName: transaction.mainIcon.category)
                 .resizable()
@@ -184,33 +207,32 @@ public struct DetailTransactionView: View {
     }
 
     @ViewBuilder
-    var smallIcon: some View {
+    func smallIcon(size: CGFloat, backgroundSize: CGFloat) -> some View {
         if let url = transaction.smallIcon.url {
-            AsyncImage(url: URL(string: url)) { image in
-                image
-                    .resizable()
-                    .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
-            } placeholder: {
-                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
-                    .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+            AsyncImage(url: URL(string: url), transaction: .init(animation: .linear)) { phase in
+                switch phase {
+                case let .success(image):
+                    image
+                        .resizable()
+                        .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+                default:
+                    ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                        .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+                }
             }
-            .frame(width: 18, height: 18)
+            .frame(width: size, height: size)
             .clipShape(Circle())
             .background(Circle()
-                .fill(.white).frame(width: 26, height: 26)
+                .fill(.white).frame(width: backgroundSize, height: backgroundSize)
                 .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
-            .offset(y: DetailTransactionViewSize.mastHeadHight / 2)
-            .padding(.trailing, 20)
         } else {
             Image(iconName: transaction.smallIcon.category)
                 .resizable()
                 .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
-                .frame(width: 18, height: 18)
+                .frame(width: size, height: size)
                 .background(Circle()
-                    .fill(.white).frame(width: 26, height: 26)
+                    .fill(.white).frame(width: backgroundSize, height: backgroundSize)
                     .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
-                .offset(y: DetailTransactionViewSize.mastHeadHight / 2)
-                .padding(.trailing, 20)
         }
     }
 }
@@ -232,7 +254,7 @@ struct DetailTransactionView_Previews: PreviewProvider {
 }
 
 private extension AnyTransition {
-    static var moveAndScale: AnyTransition {
+    static var moveAndShow: AnyTransition {
         AnyTransition.move(edge: .bottom).combined(with: .opacity)
     }
 }
