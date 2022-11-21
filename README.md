@@ -28,7 +28,6 @@ It is more a showcase of how could be implemented different technical iOS projec
     * [Components](#components)
     * [Interactions](#interactions)
 * [Tools](#tools)
-    * [Scalability]
 
 # Installation
 
@@ -61,7 +60,7 @@ The DI implementation is applied with the `@Injected` property wrapper.
 
 ### Modular
 
-The project contains 2 local swift package, `NETWORK` and `DesignSystem`. This is to showcase how you can easily start modulate a project.
+The project contains 2 local swift package, `EasyNETWORK` and `TransactionDesignSystem`. This is to showcase how you can easily start modulate a project.
 If the modules needed to be reused later we could set them in there own git repository.
 
 ### Protocols
@@ -119,3 +118,9 @@ The configuration for this tool can be found in the `.swiftlint.yml` file.
 This is the main code reformatting tool for the project.
 If you don't have this tool installed please refer to the following link to set it up: [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
 The configuration for this tool can be found in the `.swiftformat` file
+
+## SwiftGen
+
+This is a tool to type safe asset / Strings / Colors
+It is link to the design system package and automatically generates files the the need infos for all assets. 
+The configuration for this tool can be found in the `.swiftgem.yml` file in `TransactionDesignSystem`
