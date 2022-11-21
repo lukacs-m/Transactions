@@ -24,14 +24,4 @@ public struct TransactionUIModel {
         self.mainIcon = mainIcon
         self.smallIcon = smallIcon
     }
-//
-//    var mainIconName: String {
-//        switch title {
-//            case ""
-//        }
-//    }
-
-//    var smallIconName: String {
-//
-//    }
 }

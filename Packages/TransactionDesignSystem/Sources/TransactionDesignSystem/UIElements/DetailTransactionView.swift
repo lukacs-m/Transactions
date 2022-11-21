@@ -27,8 +27,10 @@ public struct DetailTransactionView: View {
     }
 
     private enum DetailTransactionViewSize {
-        static let mastHeadHight: CGFloat = 291
+        static let mastHeadHight: CGFloat = 224
         static let mainIconSize: CGFloat = 56
+        static let mainIconOffset: CGFloat = DetailTransactionViewSize
+            .mastHeadHight / 4 - (DetailTransactionViewSize.mainIconSize / 2)
     }
 
     public var body: some View {
@@ -79,59 +81,62 @@ public struct DetailTransactionView: View {
     @ViewBuilder
     var actions: some View {
         VStack(spacing: 10) {
-            HStack {
-                Image(systemName: "play")
+            HStack(spacing: 12) {
+                Image(iconName: transaction.smallIcon.category)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .padding(6)
-                    .background(RoundedRectangle(cornerRadius: 13).fill(.orange)
+                    .background(RoundedRectangle(cornerRadius: 13).fill(transaction.mainIcon.backgroundColor)
                         .frame(width: 32, height: 32))
-                Text("Test of text")
+                Text(Strings.TitreResto.Cell.title)
                 Spacer()
                 Button {} label: {
-                    Text("Changer \n de compte")
+                    Text(Strings.ChangeAccount.Button.title)
                         .lineLimit(2)
                         .multilineTextAlignment(.trailing)
                         .foregroundColor(.blue)
                         .font(.system(size: 12, weight: .bold))
                 }.buttonStyle(.plain)
             }
-
-            Text(transaction.price)
-                .font(.system(size: 34, weight: .bold))
-            Text(transaction.title)
-                .font(.system(size: 13, weight: .semibold))
-            Text(transaction.subtitle)
-                .foregroundColor(.gray)
-                .font(.system(size: 13, weight: .light))
+            Divider().padding(.leading, 44)
+            subActions(iconName: "split", title: Strings.ShareAccount.Cell.title)
+            Divider().padding(.leading, 44)
+            subActions(iconName: "heart", title: Strings.Love.Cell.title)
+            Divider().padding(.leading, 44)
+            subActions(iconName: "question", title: Strings.SignalProblem.Cell.title)
         }
         .padding(.horizontal, 20)
+    }
+
+    @ViewBuilder
+    func subActions(iconName: String,
+                    title: String) -> some View {
+        HStack(spacing: 12) {
+            Image(iconName: iconName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
+                .padding(6)
+                .background(RoundedRectangle(cornerRadius: 13).fill(Asset.Colors.Backgrounds.backgroundGray.color)
+                    .frame(width: 32, height: 32))
+            Text(title)
+            Spacer()
+        }
     }
 
     @ViewBuilder
     var masthead: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
-                .fill(.orange)
-                .matchedGeometryEffect(id: "background\(transaction.id)", in: animation, isSource: isShowingDetail)
+                .fill(transaction.mainIcon.backgroundColor)
+                .matchedGeometryEffect(id: "background\(transaction.id)", in: animation)
                 .frame(maxWidth: .infinity, maxHeight: DetailTransactionViewSize.mastHeadHight)
-            Image(systemName: "play")
-                .resizable()
-                .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation, isSource: isShowingDetail)
-                .frame(width: DetailTransactionViewSize.mainIconSize, height: DetailTransactionViewSize.mainIconSize)
-                .offset(y: DetailTransactionViewSize.mastHeadHight / 6 - (DetailTransactionViewSize.mainIconSize / 2))
+            mainIcon
+
             HStack {
                 Spacer()
-                Image(systemName: "xmark")
-                    .resizable()
-                    .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation, isSource: isShowingDetail)
-                    .frame(width: 18, height: 18)
-                    .background(Circle()
-                        .fill(.white).frame(width: 26, height: 26)
-                        .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation, isSource: isShowingDetail))
-                    .offset(y: DetailTransactionViewSize.mastHeadHight / 2)
-                    .padding(.trailing, 20)
+                smallIcon
             }
         }
     }
@@ -153,6 +158,61 @@ public struct DetailTransactionView: View {
                 .foregroundColor(.black)
         }.padding()
     }
+
+    @ViewBuilder
+    var mainIcon: some View {
+        if let url = transaction.mainIcon.url {
+            AsyncImage(url: URL(string: url)) { image in
+                image
+                    .resizable()
+                    .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
+            } placeholder: {
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                    .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
+            }
+            .frame(width: DetailTransactionViewSize.mainIconSize,
+                   height: DetailTransactionViewSize.mainIconSize)
+            .offset(y: DetailTransactionViewSize.mainIconOffset)
+        } else {
+            Image(iconName: transaction.mainIcon.category)
+                .resizable()
+                .matchedGeometryEffect(id: "mainIcon\(transaction.id)", in: animation)
+                .frame(width: DetailTransactionViewSize.mainIconSize,
+                       height: DetailTransactionViewSize.mainIconSize)
+                .offset(y: DetailTransactionViewSize.mainIconOffset)
+        }
+    }
+
+    @ViewBuilder
+    var smallIcon: some View {
+        if let url = transaction.smallIcon.url {
+            AsyncImage(url: URL(string: url)) { image in
+                image
+                    .resizable()
+                    .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+            } placeholder: {
+                ProgressView().progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                    .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+            }
+            .frame(width: 18, height: 18)
+            .clipShape(Circle())
+            .background(Circle()
+                .fill(.white).frame(width: 26, height: 26)
+                .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
+            .offset(y: DetailTransactionViewSize.mastHeadHight / 2)
+            .padding(.trailing, 20)
+        } else {
+            Image(iconName: transaction.smallIcon.category)
+                .resizable()
+                .matchedGeometryEffect(id: "smallIcon\(transaction.id)", in: animation)
+                .frame(width: 18, height: 18)
+                .background(Circle()
+                    .fill(.white).frame(width: 26, height: 26)
+                    .matchedGeometryEffect(id: "smallIconBack\(transaction.id)", in: animation))
+                .offset(y: DetailTransactionViewSize.mastHeadHight / 2)
+                .padding(.trailing, 20)
+        }
+    }
 }
 
 struct DetailTransactionView_Previews: PreviewProvider {
@@ -171,24 +231,8 @@ struct DetailTransactionView_Previews: PreviewProvider {
     }
 }
 
-extension AnyTransition {
+private extension AnyTransition {
     static var moveAndScale: AnyTransition {
         AnyTransition.move(edge: .bottom).combined(with: .opacity)
-    }
-}
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners))
-    }
-}
-
-struct RoundedCorner: Shape {
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
     }
 }
